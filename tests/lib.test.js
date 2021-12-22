@@ -51,6 +51,16 @@ describe('getCurrencies', () => {
     });
 });
 
+describe('getProduct', () => {
+    it('should return the product with the given id', () => {
+        const result = lib.getProduct(1);
+        // Too specific
+        // expect(result).toEqual({id: 1, price: 10});
+        expect(result).toMatchObject({id: 1, price: 10});
+        expect(result).toHaveProperty('id', 1);
+    });
+});
+
 // without grouping
 // test('absolute - should return a positive number if input is positive', () => {
 //     const result = lib.absolute(1);
