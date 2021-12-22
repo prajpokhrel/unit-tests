@@ -16,7 +16,15 @@ describe('absolute', () => {
         const result = lib.absolute(0);
         expect(result).toBe(0); 
     });
-})
+});
+
+describe('greet', () => {
+    it('should return the greeting message', () => {
+        const result = lib.greet('Prajwal');
+        expect(result).toMatch(/Prajwal/);
+        expect(result).toContain('Prajwal');
+    });
+});
 
 // without grouping
 // test('absolute - should return a positive number if input is positive', () => {
