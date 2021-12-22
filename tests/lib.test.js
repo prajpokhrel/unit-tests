@@ -61,6 +61,24 @@ describe('getProduct', () => {
     });
 });
 
+describe('registerUser', () => {
+    it('should throw error if username is falsy', () => {
+        // falsy values in JS
+        // Null, undefined, NaN, '', 0, false
+
+        const parameters = [null, undefined, NaN, '', 0, false];
+        parameters.forEach((param) => {
+            expect(() => { lib.registerUser(param); }).toThrow();
+        })
+    });
+
+    it('should return a user object if valid username if passed', () => {
+        const result = lib.registerUser('Prajwal');
+        expect(result).toMatchObject({ username: 'Prajwal' });
+        expect(result.id).toBeGreaterThan(0);
+    }); 
+});
+
 // without grouping
 // test('absolute - should return a positive number if input is positive', () => {
 //     const result = lib.absolute(1);
