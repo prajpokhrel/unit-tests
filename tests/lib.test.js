@@ -26,6 +26,31 @@ describe('greet', () => {
     });
 });
 
+
+describe('getCurrencies', () => {
+    it('should return supported currencies', () => {
+        const result = lib.getCurrencies();
+        
+        // Proper way
+        expect(result).toContain('USD');
+        expect(result).toContain('AUD');
+        expect(result).toContain('EUR');
+
+        // Ideal way
+        expect(result).toEqual(expect.arrayContaining(['USD', 'EUR', 'AUD']));
+
+        // Too General
+        // expect(result).toBeDefined();
+        // expect(result).not.toBeNull();
+
+        // Too Specific
+        // expect(result[0]).toBe('USD');
+        // expect(result[1]).toBe('AUD');
+        // expect(result[2]).toBe('EUR');
+        // expect(result.length).toBe(3);
+    });
+});
+
 // without grouping
 // test('absolute - should return a positive number if input is positive', () => {
 //     const result = lib.absolute(1);
